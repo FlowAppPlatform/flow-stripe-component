@@ -11,12 +11,12 @@ var Stripe = require('./stripe');
 *
 */
 
-class Payment extends Flow.Component {
+class Charge extends Flow.Component {
   
   constructor() {
 
-    super();    
-    this.name = 'Payment';
+    super();
+    this.name = 'Charge';
 
     var secret_key = new Flow.Property('secret_key', 'text');
     secret_key.required = true;
@@ -38,6 +38,14 @@ class Payment extends Flow.Component {
 
     var amount = new Flow.Property('amount', 'number');
     amount.required = true;
+
+    this.addProperty(secret_key);
+    this.addProperty(card_number);
+    this.addProperty(cvc);
+    this.addProperty(expiry_month);
+    this.addProperty(expiry_year);
+    this.addProperty(currency);
+    this.addProperty(amount);
 
     var success = new Flow.Port('Success');
     var error = new Flow.Port('Error');
@@ -92,4 +100,4 @@ class Payment extends Flow.Component {
   }
 }
 
-module.exports = Payment;
+module.exports = Charge;
