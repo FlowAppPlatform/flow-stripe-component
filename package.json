@@ -11,7 +11,9 @@
     "mocha": "^5.2.0"
   },
   "dependencies": {
+    "card-validator": "^5.1.0",
     "flow-platform-sdk": "^2.0.99",
+    "q": "^1.5.1",
     "stripe": "^6.12.1"
   },
   "repository": {
