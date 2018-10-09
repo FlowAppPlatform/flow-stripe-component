@@ -6,7 +6,7 @@ var Stripe = require('./stripe');
 * This component sends sms
 *
 * The component has 5 properties - `Account SID`, `Authentication Token`, From`, `To`, and `Body`
-* The component has 2 ports respective to the sms statuses `Sent`, `Error`
+* The component has 2 ports respective to the sms statuses `Success`, `Error`
 * The ports each have the `Data` property, the response from Twilio
 *
 */
@@ -18,16 +18,54 @@ class Payment extends Flow.Component {
     super();    
     this.name = 'Payment';
 
+    var secret_key = new Flow.Property('secret_key', 'text');
+    secret_key.required = true;
+
+    var card_number = new Flow.Property('card_number', 'text');
+    card_number.required = true;
+
+    var cvc = new Flow.Property('cvc', 'text');
+    cvc.required = true;
+
+    var expiry_month = new Flow.Property('expiry_month', 'number');
+    expiry_month.required = true;
+
+    var expiry_year = new Flow.Property('expiry_year', 'number');
+    expiry_year.required = true;
+
+    var currency = new Flow.Property('currency', 'text');
+    currency.required = true;
+
+    var amount = new Flow.Property('amount', 'number');
+    amount.required = true;
+
+    var success = new Flow.Port('Success');
+    var error = new Flow.Port('Error');
+
+    var response = new Flow.Property('Data', 'object');
+    response.required = true;
+    success.addProperty(response);
+    
+    var generalError = new Flow.Property('Data', 'object');
+    generalError.required = true;
+    error.addProperty(generalError);
+    
+    this.addPort(success);
+    this.addPort(error);
+
     // make charge here
-    this.attachTask(function () {
+    this.attachTask(function() {
       let task = 
         new Stripe(
-          this.getProperty('ACCOUNT_SID').data,
-          this.getProperty('AUTH_TOKEN').data,
-          this.getProperty('From').data,
-          this.getProperty('To').data,
-          this.getProperty('Body').data
-        ).create();
+          this.getProperty('secret_key').data,
+          this.getProperty('card_number').data,
+          this.getProperty('cvc').data,
+          this.getProperty('expiry_month').data,
+          this.getProperty('expiry_year').data
+        ).charge(
+          this.getProperty('currency').data,
+          this.getProperty('amount').data
+        );
       
       if (task instanceof Error) {
         const port = this.getPort('Error');
@@ -38,7 +76,7 @@ class Payment extends Flow.Component {
       }
       task
         .then(response => {
-          const port = this.getPort('Sent');
+          const port = this.getPort('Success');
           port.getProperty('Data').data = response;
           port.emit();
           this.taskComplete();
@@ -48,12 +86,10 @@ class Payment extends Flow.Component {
           port.getProperty('Data').data = err;
           port.emit();
           this.taskComplete();
-        })
-        .done();
+        });
     });
 
   }
-
 }
 
 module.exports = Payment;

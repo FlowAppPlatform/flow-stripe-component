@@ -1,6 +1,6 @@
 /*
-* Tests
-*/
+ * Tests
+ */
 
 const Stripe = require('./stripe');
 
