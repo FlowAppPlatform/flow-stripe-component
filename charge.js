@@ -3,11 +3,12 @@ var Stripe = require('./stripe');
 
 /*
 *
-* This component sends sms
+* This component makes a charge to a card
 *
-* The component has 5 properties - `Account SID`, `Authentication Token`, From`, `To`, and `Body`
-* The component has 2 ports respective to the sms statuses `Success`, `Error`
-* The ports each have the `Data` property, the response from Twilio
+* The component has 6 properties - `secret_key`, `card_number`, `cvc`, `expiry_month`, `expiry_year`,  `currency`, and `amount`
+* 
+* The component has 2 ports respective to the charge statuses `Success`, `Error`
+* The ports each have the `Data` property, the response from Stripe
 *
 */
 
