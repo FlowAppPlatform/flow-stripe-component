@@ -12,10 +12,10 @@ class Stripe {
   constructor(key, card_number, cvc, exp_month, exp_year) {
     this.stripe = stripe(key);
     this.card = {
-      "number": card_number.toString(),
-      "exp_month": exp_month.toString(),
-      "exp_year": exp_year.toString(),
-      "cvc": cvc.toString()
+      'number': card_number.toString(),
+      'exp_month': exp_month.toString(),
+      'exp_year': exp_year.toString(),
+      'cvc': cvc.toString()
     };
   }
 
@@ -51,9 +51,9 @@ class Stripe {
       validator.expirationMonth(card.exp_month).isValid &&
       validator.expirationYear(card.exp_year).isValid &&
       validator.cvv(card.cvc).isValid
-    )
+    );
   }
 
-};
+}
 
 module.exports = Stripe;

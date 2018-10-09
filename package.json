@@ -4,7 +4,7 @@
   "description": "Stripe components designed to work with Flow SDK",
   "main": "index.js",
   "scripts": {
-    "test": "mocha tests.js"
+    "test": "eslint ./ --fix && mocha tests.js"
   },
   "devDependencies": {
     "eslint": "^5.6.1",
