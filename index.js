@@ -1,5 +1,5 @@
-import Payment from './payment';
+import Charge from './charge';
 
 module.exports = {
-  Payment
+  Charge
 }
