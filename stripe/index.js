@@ -4,6 +4,8 @@ const q = require('q');
 
 /*
  *
+ * The class is an interface to Stripe
+ * Stripe functionality is implemented here
  * 
  */
 
