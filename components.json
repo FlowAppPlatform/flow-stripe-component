@@ -1,7 +1,7 @@
 {
   "flow-json-component-charge": {
     "componentId": "flow-json-component-charge",
-    "title": "From Text to JSON",
+    "title": "Make charge to a card",
     "imgSrc": "assets/icons/charge.svg",
     "type": "flow-graph-component",
     "file": "./charge.js",
