@@ -29,8 +29,6 @@ describe(`Component Tests
   });
 });
 
-return;
-
 describe(`Stripe Tests
 `, function() {
   this.timeout(10000);
