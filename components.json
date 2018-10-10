@@ -1,0 +1,114 @@
+{
+  "flow-json-component-charge": {
+    "componentId": "flow-json-component-charge",
+    "title": "Make charge to a card",
+    "imgSrc": "assets/icons/charge.svg",
+    "type": "flow-graph-component",
+    "file": "./charge.js",
+    "executionPlatform": ["server", "client"],
+    "metadata": {
+      "icon-color": "#7ab260"
+    },
+    "ports": [
+      {
+        "id": "Success",
+        "title": "Success",
+        "description": "Charge made succesfully.",
+        "properties": [
+          {
+            "categoryName": "General",
+            "categoryDescription": "Basic settings about this port.",
+            "properties": [
+              {
+                "id": "Data",
+                "name": "Response",
+                "type": "object",
+                "data": null,
+                "options": { "required": true }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Error",
+        "title": "Error",
+        "description": "An error occured.",
+        "properties": [
+          {
+            "categoryName": "General",
+            "categoryDescription": "Basic settings about this port.",
+            "properties": [
+              {
+                "id": "Data",
+                "name": "Error",
+                "type": "text",
+                "data": null,
+                "options": { "required": true }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "properties": [
+      {
+        "categoryName": "General",
+        "categoryDescription": "Basic settings about the Charge component.",
+        "properties": [
+          {
+            "id": "secret_key",
+            "name": "Stripe secret key",
+            "type": "text",
+            "data": null,
+            "options": { "required": true }
+          },
+          {
+            "id": "card_number",
+            "name": "Card Number",
+            "type": "text",
+            "data": null,
+            "options": { "required": true }
+          },
+          {
+            "id": "cvc",
+            "name": "Card CVC",
+            "type": "text",
+            "data": null,
+            "options": { "required": true }
+          },
+          {
+            "id": "expiry_month",
+            "name": "Card Expiry Month",
+            "type": "number",
+            "data": null,
+            "options": { "required": true }
+          },
+          {
+            "id": "expiry_year",
+            "name": "Card Expiry Year",
+            "type": "number",
+            "data": null,
+            "options": { "required": true }
+          },
+          {
+            "id": "currency",
+            "name": "Currency",
+            "type": "text",
+            "data": null,
+            "options": { "required": true }
+          },
+          {
+            "id": "amount",
+            "name": "Amount",
+            "type": "number",
+            "data": null,
+            "options": { "required": true }
+          }
+        ]
+      }
+    ],
+    "showOnComponentsPanel": true,
+    "isDeletable": true
+  }
+}
