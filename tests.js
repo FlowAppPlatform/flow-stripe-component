@@ -2,47 +2,36 @@
  * Tests
  */
 
+const Graph = require('flow-platform-sdk').Graph;
 const Charge = require('./charge');
-const Stripe = require('./stripe');
 
 describe(`Component Tests
 `, function() {
   const component = new Charge();
-  it('Component should have all required properties', done => {
-    try {
-      component.getProperty('secret_key');
-      component.getProperty('card_number');
-      component.getProperty('cvc');
-      component.getProperty('expiry_month');
-      component.getProperty('expiry_year');
-      component.getProperty('currency');
-      component.getProperty('amount');
+  it('Component should execute without errors', done => {
+    component.getProperty('secret_key').data = 'sk_test_BQokikJOvBiI2HlWgH4olfQ2';
+    component.getProperty('card_number').data = '4242424242424242';
+    component.getProperty('cvc').data = '123';
+    component.getProperty('expiry_month').data = 11;
+    component.getProperty('expiry_year').data = 2021;
+    component.getProperty('currency').data = 'usd';
+    component.getProperty('amount').data = 100;
+
+    component.getPort('Success').onEmit(() => {
       done();
-    } catch(e) { done(new Error('Component missing required properties')); }
+    });
+    component.getPort('Error').onEmit(() => {
+      done(component.getPort('Error').getProperty('Data').data);
+    });
+
+    new Graph("graph-1").addComponent(component);
+    component.execute();
   });
   it(`Component should have all required ports with 'Data' property`, done => {
     try {
-      component.getPort('Success');
-      component.getPort('Error');
+      component.getPort('Success').getProperty('Data');
+      component.getPort('Error').getProperty('Data');
       done();
     } catch(e) { done(new Error('Component missing required ports')); }
-  });
-});
-
-describe(`Stripe Tests
-`, function() {
-  this.timeout(10000);
-  it('Should charge succesfully', done => {
-    new Stripe(
-      'sk_test_BQokikJOvBiI2HlWgH4olfQ2',
-      '4242424242424242', '123', 12, 2023
-    )
-      .charge('usd', 100)
-      .then(response => {
-        if (response.status === 'succeeded')
-          done();
-        else done(new Error('Charge not succesfully made'));
-      })
-      .catch(err => done(err));
   });
 });
