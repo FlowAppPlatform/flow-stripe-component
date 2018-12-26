@@ -12,19 +12,23 @@ const q = require('q');
 class Stripe {
 
   constructor(key, card_number, cvc, exp_month, exp_year) {
-    this.stripe = stripe(key);
     this.card = {
       'number': card_number.toString(),
       'exp_month': exp_month.toString(),
       'exp_year': exp_year.toString(),
       'cvc': cvc.toString()
     };
+    if (process.env.NODE_ENV === 'testing') return;
+    this.stripe = stripe(key);
   }
 
   charge(currency, amount) {
+    if (process.env.NODE_ENV === 'testing') return new Promise(
+      res => res({ status: 'succeeded' })
+    );
     let t = this;
-    if (!this.isCardValid()) return new Error('Payment card not valid');
     const d = q.defer();
+    if (!this.isCardValid()) return new Error('Payment card not valid');
     this.stripe.tokens.create({
       card: this.card
     }, function (err, token) {

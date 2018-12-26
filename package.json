@@ -1,10 +1,9 @@
 {
   "name": "flow-stripe-component",
-  "version": "1.0.0",
   "description": "Stripe components designed to work with Flow SDK",
   "main": "index.js",
   "scripts": {
-    "test": "eslint ./ --fix && mocha tests.js"
+    "test": "eslint ./ --fix && cross-env NODE_ENV='testing' mocha tests.js"
   },
   "devDependencies": {
     "eslint": "^5.6.1",
@@ -12,7 +11,8 @@
   },
   "dependencies": {
     "card-validator": "^5.1.0",
-    "flow-platform-sdk": "^2.0.99",
+    "cross-env": "^5.2.0",
+    "flow-platform-sdk": "^1.2.0",
     "q": "^1.5.1",
     "stripe": "^6.12.1"
   },
