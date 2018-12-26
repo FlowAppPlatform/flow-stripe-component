@@ -1,6 +1,5 @@
 {
   "name": "flow-stripe-component",
-  "version": "1.0.0",
   "description": "Stripe components designed to work with Flow SDK",
   "main": "index.js",
   "scripts": {
