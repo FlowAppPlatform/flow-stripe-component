@@ -14,9 +14,9 @@ var Stripe = require('./stripe');
 
 class Charge extends Flow.Component {
   
-  constructor() {
+  constructor(id = null) {
 
-    super();
+    super(id);
     this.name = 'Charge';
 
     var secret_key = new Flow.Property('secret_key', 'text');
