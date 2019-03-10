@@ -1,14 +1,14 @@
 {
   "flow-json-component-charge": {
     "graphComponentId": "flow-json-component-charge",
-    "title": "Make charge to a card",
-    "category": "Actions",
+    "title": "Charge credit card with Stripe",
+    "category": "Payments",
     "imgSrc": "assets/images/icons/charge.svg",
     "type": "graphComponent",
     "file": "./charge.js",
     "executionPlatform": ["server", "client"],
     "metadata": {
-      "icon-color": "#7ab260"
+      "icon-color": "#174f01"
     },
     "ports": [
       {
