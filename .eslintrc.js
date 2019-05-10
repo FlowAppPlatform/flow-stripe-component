@@ -15,7 +15,7 @@ module.exports = {
         "sourceType": "module"
     },
     "rules": {
-      "quotes": 1,
+      "quotes": 0,
       "semi": 2,
       "no-var": 2,
       "no-unused-vars": [1, { "vars": "all", "args": "none" }],
