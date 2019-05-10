@@ -4,7 +4,7 @@ import Stripe from './stripe';
 export default class CreateCustomer extends Component {
   constructor() {
     super();
-    this.name = "create-customer";
+    this.name = 'create-customer';
 
     const secret_key = new Property('secret_key', 'text');
     const card_number = new Property('card_number', 'number');
@@ -55,8 +55,8 @@ export default class CreateCustomer extends Component {
         this.taskComplete();
         return;
       }
-      task.
-        then((resp) => {
+      task
+        .then((resp) => {
           const port = this.getPort('Success');
           port.getProperty('Data').data = resp;
 
