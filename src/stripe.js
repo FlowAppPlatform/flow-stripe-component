@@ -3,11 +3,16 @@ import validator from "card-validator";
 
 /**
  * @param String key: stripe api key
- * @param Object card: card object
+ * @param Number card: card object
  */
 export default class Stripe {
-  constructor(key = null, card = {}) {
-    this.card = card;
+  constructor(key, card_number, cvc, exp_month, exp_year) {
+    this.card = {
+      "number": card_number,
+      "cvc": cvc,
+      "exp_month": exp_month,
+      "exp_year": exp_year
+    };
     if (process.env.NODE_ENV === "testing") return;
     this.stripe = stripe(key);
   }
@@ -19,7 +24,7 @@ export default class Stripe {
       );
     }
     try {
-      if (!this.isCardValid()) {
+      if (!this._isCardValid()) {
         throw "Payment card not valid";
       }
       const token = await this._createToken();
@@ -60,10 +65,15 @@ export default class Stripe {
     }
   }
 
-  async addCard(customer, card) {
+  async addCard(customer, card_number, cvc, exp_month, exp_year) {
     try {
-      this.card = card;
-      if (!this.isCardValid()) {
+      this.card = {
+        "number": card_number,
+        "cvc": cvc,
+        "exp_month": exp_month,
+        "exp_year": exp_year
+      };
+      if (!this._isCardValid()) {
         throw "Payment card not valid";
       }
       const token = await this._createToken();
@@ -94,7 +104,7 @@ export default class Stripe {
     }
   }
 
-  isCardValid(card = this.card) {
+  _isCardValid(card = this.card) {
     return (
       validator.number(card.number).isValid &&
       validator.expirationMonth(card.exp_month).isValid &&
