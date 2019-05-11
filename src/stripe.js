@@ -68,14 +68,8 @@ export default class Stripe {
     }
   }
 
-  async addCard(customer, card_number, cvc, exp_month, exp_year) {
+  async addCard(customer) {
     try {
-      this.card = {
-        'number': card_number,
-        'cvc': cvc,
-        'exp_month': exp_month,
-        'exp_year': exp_year
-      };
       if (!this._isCardValid()) {
         throw 'Payment card not valid';
       }
@@ -89,9 +83,9 @@ export default class Stripe {
     }
   }
 
-  async deleteCard(customer, cardId) {
+  async deleteCard(customer, card_id) {
     try {
-      return await this.stripe.customers.deleteSource(customer, cardId);
+      return await this.stripe.customers.deleteSource(customer, card_id);
     } catch (err) {
       throw new Error(err);
     }
