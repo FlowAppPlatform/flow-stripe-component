@@ -1,13 +1,15 @@
 module.exports = {
     "env": {
         "browser": true,
-        "es6": true
+        "es6": true,
+        "mocha": true,
     },
     "extends": "eslint:recommended",
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly",
         "process": false,
+        "require": false,
     },
     "parser": "babel-eslint",
     "parserOptions": {

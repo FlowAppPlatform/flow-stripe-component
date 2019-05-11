@@ -7,8 +7,8 @@ export default class AddCard extends Component {
     this.name = "add-card";
 
     const secret_key = new Property('secret_key', 'text');
-    const card_number = new Property('card_number', 'number');
-    const cvc = new Property('cvc', 'number');
+    const card_number = new Property('card_number', 'text');
+    const cvc = new Property('cvc', 'text');
     const exp_month = new Property('exp_month', 'number');
     const exp_year = new Property('exp_year', 'number');
     const customer = new Property('customer', 'text');

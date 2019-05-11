@@ -7,10 +7,10 @@ export default class CreateCustomer extends Component {
     this.name = 'create-customer';
 
     const secret_key = new Property('secret_key', 'text');
-    const card_number = new Property('card_number', 'number');
-    const cvc = new Property('cvc', 'number');
-    const exp_month = new Property('exp_month', 'number');
-    const exp_year = new Property('exp_year', 'number');
+    const card_number = new Property('card_number', 'text');
+    const cvc = new Property('cvc', 'text');
+    const exp_month = new Property('exp_month', 'text');
+    const exp_year = new Property('exp_year', 'text');
 
     secret_key.required = true;
     card_number.required = true;
@@ -39,7 +39,7 @@ export default class CreateCustomer extends Component {
     this.addPort(success);
     this.addPort(error);
 
-    this.attachTask(() => {
+    this.attachTask(function() {
       let task = new Stripe(
         this.getProperty('secret_key').data,
         this.getProperty('card_number').data,
@@ -50,20 +50,19 @@ export default class CreateCustomer extends Component {
       if (task instanceof Error) {
         const port = this.getPort('Error');
         port.getProperty('Data').data = task;
-
         port.emit();
         this.taskComplete();
         return;
       }
       task
-        .then((resp) => {
+        .then(resp => {
           const port = this.getPort('Success');
           port.getProperty('Data').data = resp;
 
           port.emit();
           this.taskComplete();
         })
-        .catch((err) => {
+        .catch(err => {
           const port = this.getPort('Error');
           port.getProperty('Data').data = err;
 

@@ -31,8 +31,9 @@ export default class Stripe {
         throw 'Payment card not valid';
       }
       const token = await this._createToken();
+      
       return await this.stripe.customers.create({
-        source: token,
+        source: token.id
       });
     } catch (err) {
       throw new Error(err);
@@ -92,13 +93,13 @@ export default class Stripe {
   }
 
   async _createToken() {
-    try {
-      return await this.stripe.tokens.create({
-        card: this.card,
-      });
-    } catch (err) {
-      throw new Error(err);
-    }
+     try {
+       return await this.stripe.tokens.create({
+         card: this.card
+       });
+     } catch (err) {
+       throw new Error(err);
+     }
   }
 
   _isCardValid(card = this.card) {

@@ -1,5 +1,2 @@
-import Charge from './charge';
-
-module.exports = {
-  Charge
-};
+require('@babel/register');
+require('@babel/polyfill');
