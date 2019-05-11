@@ -9,8 +9,8 @@ export default class AddCard extends Component {
     const secret_key = new Property('secret_key', 'text');
     const card_number = new Property('card_number', 'text');
     const cvc = new Property('cvc', 'text');
-    const exp_month = new Property('exp_month', 'number');
-    const exp_year = new Property('exp_year', 'number');
+    const exp_month = new Property('exp_month', 'text');
+    const exp_year = new Property('exp_year', 'text');
     const customer = new Property('customer', 'text');
 
     secret_key.required = true;
