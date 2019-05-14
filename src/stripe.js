@@ -20,7 +20,7 @@ export default class Stripe {
     this.stripe = stripe(key);
   }
   
-  async createCustomer() {
+  async createCustomer(email) {
     if (process.env.NODE_ENV === 'testing') {
       return new Promise(
         res => res({ status: 'succeeded' })
@@ -33,10 +33,11 @@ export default class Stripe {
       const token = await this._createToken();
       
       return await this.stripe.customers.create({
-        source: token.id
+        source: token.id,
+        email
       });
     } catch (err) {
-      throw new Error(err);
+      throw err;
     }
   }
 
@@ -44,7 +45,7 @@ export default class Stripe {
     try {
       return await this.stripe.customers.del(customer);
     } catch (err) {
-      throw new Error(err);
+      throw err;
     }
   }
 
@@ -57,7 +58,7 @@ export default class Stripe {
         }]
       });
     } catch (err) {
-      throw new Error(err);
+      throw err;
     }
   }
 
@@ -65,7 +66,7 @@ export default class Stripe {
     try {
       return await this.stripe.subscriptions.del(subscription);
     } catch (err) {
-      throw new Error(err);
+      throw err;
     }
   }
 
@@ -80,7 +81,7 @@ export default class Stripe {
         { source: token },
       );
     } catch (err) {
-      throw new Error(err);
+      throw err;
     }
   }
 
@@ -88,7 +89,7 @@ export default class Stripe {
     try {
       return await this.stripe.customers.deleteSource(customer, card_id);
     } catch (err) {
-      throw new Error(err);
+      throw err;
     }
   }
 
@@ -98,7 +99,7 @@ export default class Stripe {
          card: this.card
        });
      } catch (err) {
-       throw new Error(err);
+       throw err;
      }
   }
 
