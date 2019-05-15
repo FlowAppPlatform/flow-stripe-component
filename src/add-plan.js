@@ -51,7 +51,7 @@ export default class AddPlan extends Component {
         this.getProperty('plan_name').data,
         this.getProperty('plan_currency').data,
         // this.getProperty('trial_period_days') 
-        &&  this.getProperty('trial_period_days').data
+        // &&  this.getProperty('trial_period_days').data
       );
       if (task instanceof Error) {
         const port = this.getPort('Error');
