@@ -111,6 +111,21 @@ export default class Stripe {
     }
   }
 
+  async charge(currency, amount, customer_id, description) {
+    try {
+      const token = await this._createToken();
+      return await this.stripe.charges.create({
+        amount,
+        currency,
+        source: token.id,
+        description,
+        customer_id
+      });
+    } catch (err) {
+      throw err;
+    }
+  }
+
   async _createToken() {
      try {
        return await this.stripe.tokens.create({

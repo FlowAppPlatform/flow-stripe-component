@@ -24,6 +24,8 @@ export default class Charge extends Component {
     const expiry_year = new Property('expiry_year', 'number');
     const currency = new Property('currency', 'text');
     const amount = new Property('amount', 'number');
+    const customer_id = new Property('customer_id', 'text');
+    const description = new Property('description', 'text');
 
 
     secret_key.required = true;
@@ -41,6 +43,8 @@ export default class Charge extends Component {
     this.addProperty(expiry_year);
     this.addProperty(currency);
     this.addProperty(amount);
+    this.addProperty(customer_id);
+    this.addProperty(description);
 
     const success = new Port('Success');
     const error = new Port('Error');
@@ -66,7 +70,9 @@ export default class Charge extends Component {
         this.getProperty('expiry_year').data
       ).charge(
         this.getProperty('currency').data,
-        this.getProperty('amount').data
+        this.getProperty('amount').data,
+        this.getProperty('customer_id').data,
+        this.getProperty('description').data
       );
       
       if (task instanceof Error) {
