@@ -18,7 +18,7 @@ describe('Create Subscription tests', function() {
 
   it('executes without errors', (done) => {
     const component = new CreateSubscription();
-    component.getProperty('secret_key').data = config.stripe_key || travis_stripe_key;
+    component.getProperty('secret_key').data = config.stripe_key || global.travis_stripe_key;
     component.getProperty('customer').data = customer_id;
     component.getProperty('plan').data = plan_id;
 
@@ -37,7 +37,7 @@ describe('Create Subscription tests', function() {
 
   it('it throws error when customer_id is incorrect',  (done) => {
     const component = new CreateSubscription();
-    component.getProperty('secret_key').data = config.stripe_key|| travis_stripe_key;
+    component.getProperty('secret_key').data = config.stripe_key|| global.travis_stripe_key;
     component.getProperty('customer').data = customer_id;
     component.getProperty('plan').data = plan_id;
     
@@ -60,7 +60,7 @@ describe('Create Subscription tests', function() {
 
   it('returns subscription details on success',  (done) => {
     const component = new CreateSubscription();
-    component.getProperty('secret_key').data = config.stripe_key || travis_stripe_key;
+    component.getProperty('secret_key').data = config.stripe_key || global.travis_stripe_key;
     component.getProperty('customer').data = MockStore.customer_id;
     component.getProperty('plan').data = MockStore.plan_id;
     

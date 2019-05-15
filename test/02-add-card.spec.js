@@ -42,7 +42,7 @@ describe('Add card tests', () => {
 
   it('returns card details on success', (done) => {
     const component = new AddCard();
-    component.getProperty('secret_key').data = config.stripe_key || travis_stripe_key;
+    component.getProperty('secret_key').data = config.stripe_key || global.travis_stripe_key;
     component.getProperty('card_number').data = card_number;
     component.getProperty('cvc').data = cvc;
     component.getProperty('exp_month').data = exp_month;
@@ -71,7 +71,7 @@ describe('Add card tests', () => {
 
   it('it throws error when customer_id is incorrect',  (done) => {
     const component = new AddCard();
-    component.getProperty('secret_key').data = config.stripe_key || travis_stripe_key;
+    component.getProperty('secret_key').data = config.stripe_key || global.travis_stripe_key;
     component.getProperty('card_number').data = card_number;
     component.getProperty('cvc').data = cvc;
     component.getProperty('exp_month').data = exp_month;

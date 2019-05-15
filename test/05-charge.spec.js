@@ -21,7 +21,7 @@ describe('Charge tests', () => {
 
   it('executes without errors',  (done) => {
     const component = new Charge();
-    component.getProperty('secret_key').data = config.stripe_key || travis_stripe_key;
+    component.getProperty('secret_key').data = config.stripe_key || global.travis_stripe_key;
     component.getProperty('card_number').data = card_number;
     component.getProperty('cvc').data = cvc;
     component.getProperty('exp_month').data = exp_month;
@@ -44,7 +44,7 @@ describe('Charge tests', () => {
 
   it('it returns charge data on sucess',  (done) => {
     const component = new Charge();
-    component.getProperty('secret_key').data = config.stripe_key || travis_stripe_key;
+    component.getProperty('secret_key').data = config.stripe_key || global.travis_stripe_key;
     component.getProperty('card_number').data = card_number;
     component.getProperty('cvc').data = cvc;
     component.getProperty('exp_month').data = exp_month;
