@@ -1,8 +1,7 @@
 sudo: required
 language: node_js
 env:
-  global:
-    - travis_stripe_key: $travis_stripe_key
+  - travis_stripe_key: $travis_stripe_key
 node_js:
 - '10.1'
 install:

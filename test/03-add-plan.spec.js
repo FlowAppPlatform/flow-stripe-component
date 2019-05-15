@@ -20,7 +20,7 @@ describe('Add plan tests', () => {
 
   it('executes without errors', (done) => {
     const component = new AddPlan();
-    component.getProperty('secret_key').data = config.stripe_key || global.travis_stripe_key;
+    component.getProperty('secret_key').data = config.stripe_key || travis_stripe_key;
     component.getProperty('plan_amount').data = plan_amount;
     component.getProperty('plan_interval').data = plan_interval;
     component.getProperty('plan_name').data = plan_name;
@@ -40,7 +40,7 @@ describe('Add plan tests', () => {
 
   it('returns card details on success', (done) => {
     const component = new AddPlan();
-    component.getProperty('secret_key').data = config.stripe_key || global.travis_stripe_key;
+    component.getProperty('secret_key').data = config.stripe_key || travis_stripe_key;
     component.getProperty('plan_amount').data = plan_amount;
     component.getProperty('plan_interval').data = plan_interval;
     component.getProperty('plan_name').data = plan_name;

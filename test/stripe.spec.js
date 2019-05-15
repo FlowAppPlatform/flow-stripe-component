@@ -35,7 +35,7 @@ describe('Stripe test', function() {
 
   it('throws a payment card error when payment card object is incorrect/incomplete', async () => {
     const stripe =  new Stripe(
-      config.stripe_key || global.travis_stripe_key, fake_card, cvc, exp_month, exp_year
+      config.stripe_key || travis_stripe_key, fake_card, cvc, exp_month, exp_year
     );
 
     try {

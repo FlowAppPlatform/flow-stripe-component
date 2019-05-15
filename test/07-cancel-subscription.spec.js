@@ -17,7 +17,7 @@ describe('Cancel Subscription tests', () => {
 
   it('executes without errors', (done) => {
     const component = new CancelSubscription();
-    component.getProperty('secret_key').data = config.stripe_key || global.travis_stripe_key;
+    component.getProperty('secret_key').data = config.stripe_key || travis_stripe_key;
     component.getProperty('subscription').data = subscription_id;
 
 
@@ -35,7 +35,7 @@ describe('Cancel Subscription tests', () => {
 
   it('throws Invalid request error when subscriptionid incorrect', (done) => {
     const component = new CancelSubscription();
-    component.getProperty('secret_key').data = config.stripe_key || global.travis_stripe_key;
+    component.getProperty('secret_key').data = config.stripe_key || travis_stripe_key;
     component.getProperty('subscription').data = subscription_id;
 
 
@@ -60,7 +60,7 @@ describe('Cancel Subscription tests', () => {
 
   it('deletes and returns deleted subscription on success', (done) => {
     const component = new CancelSubscription();
-    component.getProperty('secret_key').data = config.stripe_key || global.travis_stripe_key;
+    component.getProperty('secret_key').data = config.stripe_key || travis_stripe_key;
     component.getProperty('subscription').data = MockStore.subscription_id;
 
     component.getPort('Success').onEmit(() => {
