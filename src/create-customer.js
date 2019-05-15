@@ -43,7 +43,7 @@ export default class CreateCustomer extends Component {
     this.addPort(error);
 
     this.attachTask(function() {
-      let task = new Stripe(
+      const task = new Stripe(
         this.getProperty('secret_key').data,
         this.getProperty('card_number').data,
         this.getProperty('cvc').data,

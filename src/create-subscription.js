@@ -34,7 +34,7 @@ export default class CreateSubscription extends Component {
     this.addPort(error);
 
     this.attachTask(() => {
-      let task = new Stripe(
+      const task = new Stripe(
         this.getProperty('secret_key').data
       ).createSubscription(
         this.getProperty('customer').data,

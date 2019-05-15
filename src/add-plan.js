@@ -42,7 +42,7 @@ export default class AddPlan extends Component {
     this.addPort(error);
 
     this.attachTask(() => {
-      let task = new Stripe(
+      const task = new Stripe(
         this.getProperty('secret_key').data
       ).addPlan(
         this.getProperty('plan_amount').data,

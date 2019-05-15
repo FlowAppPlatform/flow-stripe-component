@@ -34,7 +34,7 @@ export default class DeleteCard extends Component {
     this.addPort(error);
 
     this.attachTask(() => {
-      let task = new Stripe(
+      const task = new Stripe(
         this.getProperty('secret_key').data,
       ).deleteCard(
         this.getProperty('customer').data,

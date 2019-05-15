@@ -16,16 +16,10 @@ export default class Stripe {
       'exp_month': exp_month,
       'exp_year': exp_year
     };
-    if (process.env.NODE_ENV === 'testing') return;
     this.stripe = stripe(key);
   }
   
   async createCustomer(email) {
-    if (process.env.NODE_ENV === 'testing') {
-      return new Promise(
-        res => res({ status: 'succeeded' })
-      );
-    }
     try {
       if (!this._isCardValid()) {
         throw new Error('Payment card not valid');
