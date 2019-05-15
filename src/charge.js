@@ -26,7 +26,7 @@ export default class Charge extends Component {
     const amount = new Property('amount', 'number');
     // optional properties
     const customer_id = new Property('customer_id', 'text');
-    // const description = new Property('description', 'text');
+    const description = new Property('description', 'text');
 
 
     secret_key.required = true;
@@ -45,7 +45,7 @@ export default class Charge extends Component {
     this.addProperty(currency);
     this.addProperty(amount);
     this.addProperty(customer_id);
-    // this.addProperty(description);
+    this.addProperty(description);
 
     const success = new Port('Success');
     const error = new Port('Error');
@@ -73,7 +73,7 @@ export default class Charge extends Component {
         this.getProperty('currency').data,
         this.getProperty('amount').data,
         this.getProperty('customer_id').data,
-        // this.getProperty('description').data
+        this.getProperty('description').data
       );
       
       if (task instanceof Error) {

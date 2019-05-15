@@ -29,8 +29,6 @@ describe('Charge tests', () => {
     component.getProperty('amount').data = amount;
     component.getProperty('currency').data = currency;
 
-    component.getProperty('customer_id').data = MockStore.customer_id;
-
     component.getPort('Success').onEmit(() => {
       done();
     });
