@@ -5,7 +5,7 @@
     "category": "Payments",
     "imgSrc": "assets/images/icons/charge.svg",
     "type": "graphComponent",
-    "file": "./charge.js",
+    "file": "./src/charge.js",
     "executionPlatform": ["server", "client"],
     "metadata": {
       "icon-color": "#174f01"
@@ -79,16 +79,16 @@
             "options": { "required": true }
           },
           {
-            "id": "expiry_month",
+            "id": "exp_month",
             "name": "Card Expiry Month",
-            "type": "number",
+            "type": "text",
             "data": null,
             "options": { "required": true }
           },
           {
-            "id": "expiry_year",
+            "id": "exp_year",
             "name": "Card Expiry Year",
-            "type": "number",
+            "type": "text",
             "data": null,
             "options": { "required": true }
           },
@@ -103,6 +103,742 @@
             "id": "amount",
             "name": "Amount",
             "type": "number",
+            "data": null,
+            "options": { "required": true }
+          },
+          {
+            "id": "customer_id",
+            "name": "Customer Id",
+            "type": "text",
+            "data": null,
+            "options": { "required": false }
+          },
+          {
+            "id": "description",
+            "name": "Description",
+            "type": "text",
+            "data": null,
+            "options": { "required": false }
+          }
+        ]
+      }
+    ],
+    "showOnComponentsPanel": true,
+    "isDeletable": true
+  },
+  "flow-json-component-add-card": {
+    "graphComponentId": "flow-json-component-add-card",
+    "title": "Add credit card to Stripe customer",
+    "category": "Payments",
+    "imgSrc": "assets/images/icons/add-credit-card.svg",
+    "type": "graphComponent",
+    "file": "./src/add-card.js",
+    "executionPlatform": ["server", "client"],
+    "metadata": {
+      "icon-color": "#174f01"
+    },
+    "ports": [
+      {
+        "id": "Success",
+        "title": "Success",
+        "description": "Card added succesfully",
+        "properties": [
+          {
+            "categoryName": "General",
+            "categoryDescription": "Basic settings about this port",
+            "properties": [
+              {
+                "id": "Data",
+                "name": "Response",
+                "type": "object",
+                "data": null,
+                "options": { "required": true }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Error",
+        "title": "Error",
+        "description": "An error occured",
+        "properties": [
+          {
+            "categoryName": "General",
+            "categoryDescription": "Basic settings about this port",
+            "properties": [
+              {
+                "id": "Data",
+                "name": "Error",
+                "type": "text",
+                "data": null,
+                "options": { "required": true }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "properties": [
+      {
+        "categoryName": "General",
+        "categoryDescription": "Basic settings about the Add Card component",
+        "properties": [
+          {
+            "id": "secret_key",
+            "name": "Stripe secret key",
+            "type": "text",
+            "data": null,
+            "options": { "required": true }
+          },
+          {
+            "id": "card_number",
+            "name": "Card Number",
+            "type": "text",
+            "data": null,
+            "options": { "required": true }
+          },
+          {
+            "id": "cvc",
+            "name": "Card CVC",
+            "type": "text",
+            "data": null,
+            "options": { "required": true }
+          },
+          {
+            "id": "exp_month",
+            "name": "Card Expiry Month",
+            "type": "text",
+            "data": null,
+            "options": { "required": true }
+          },
+          {
+            "id": "exp_year",
+            "name": "Card Expiry Year",
+            "type": "text",
+            "data": null,
+            "options": { "required": true }
+          },
+          {
+            "id": "customer",
+            "name": "Customer",
+            "type": "text",
+            "data": null,
+            "options": { "required": true }
+          }
+        ]
+      }
+    ],
+    "showOnComponentsPanel": true,
+    "isDeletable": true
+  },
+  "flow-json-component-add-plan": {
+    "graphComponentId": "flow-json-component-add-plan",
+    "title": "Add Stripe payment plan",
+    "category": "Payments",
+    "imgSrc": "assets/images/icons/add-plan.svg",
+    "type": "graphComponent",
+    "file": "./src/add-plan.js",
+    "executionPlatform": ["server", "client"],
+    "metadata": {
+      "icon-color": "#174f01"
+    },
+    "ports": [
+      {
+        "id": "Success",
+        "title": "Success",
+        "description": "Plan added succesfully",
+        "properties": [
+          {
+            "categoryName": "General",
+            "categoryDescription": "Basic settings about this port",
+            "properties": [
+              {
+                "id": "Data",
+                "name": "Response",
+                "type": "object",
+                "data": null,
+                "options": { "required": true }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Error",
+        "title": "Error",
+        "description": "An error occured",
+        "properties": [
+          {
+            "categoryName": "General",
+            "categoryDescription": "Basic settings about this port",
+            "properties": [
+              {
+                "id": "Data",
+                "name": "Error",
+                "type": "text",
+                "data": null,
+                "options": { "required": true }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "properties": [
+      {
+        "categoryName": "General",
+        "categoryDescription": "Basic settings about the Add Plan component",
+        "properties": [
+          {
+            "id": "secret_key",
+            "name": "Stripe secret key",
+            "type": "text",
+            "data": null,
+            "options": { "required": true }
+          },
+          {
+            "id": "plan_amount",
+            "name": "Plan Amount",
+            "type": "number",
+            "data": null,
+            "options": { "required": true }
+          },
+          {
+            "id": "plan_interval",
+            "name": "Plan Interval",
+            "type": "text",
+            "data": null,
+            "options": { "required": true }
+          },
+          {
+            "id": "plan_name",
+            "name": "Plan Name",
+            "type": "text",
+            "data": null,
+            "options": { "required": true }
+          },
+          {
+            "id": "plan_currency",
+            "name": "Plan Currency",
+            "type": "text",
+            "data": null,
+            "options": { "required": true }
+          },
+          {
+            "id": "trial_period_days",
+            "name": "Trial Period",
+            "type": "number",
+            "data": null,
+            "options": { "required": false }
+          }
+        ]
+      }
+    ],
+    "showOnComponentsPanel": true,
+    "isDeletable": true
+  },
+  "flow-json-component-create-subscription": {
+    "graphComponentId": "flow-json-component-create-subscription",
+    "title": "create Stripe payment subscription",
+    "category": "Payments",
+    "imgSrc": "assets/images/icons/subscription.svg",
+    "type": "graphComponent",
+    "file": "./src/create-subscription.js",
+    "executionPlatform": ["server", "client"],
+    "metadata": {
+      "icon-color": "#174f01"
+    },
+    "ports": [
+      {
+        "id": "Success",
+        "title": "Success",
+        "description": "Subscription created succesfully",
+        "properties": [
+          {
+            "categoryName": "General",
+            "categoryDescription": "Basic settings about this port",
+            "properties": [
+              {
+                "id": "Data",
+                "name": "Response",
+                "type": "object",
+                "data": null,
+                "options": { "required": true }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Error",
+        "title": "Error",
+        "description": "An error occured",
+        "properties": [
+          {
+            "categoryName": "General",
+            "categoryDescription": "Basic settings about this port",
+            "properties": [
+              {
+                "id": "Data",
+                "name": "Error",
+                "type": "text",
+                "data": null,
+                "options": { "required": true }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "properties": [
+      {
+        "categoryName": "General",
+        "categoryDescription": "Basic settings about the Create Subscription component",
+        "properties": [
+          {
+            "id": "secret_key",
+            "name": "Stripe secret key",
+            "type": "text",
+            "data": null,
+            "options": { "required": true }
+          },
+          {
+            "id": "customer",
+            "name": "Customer Id",
+            "type": "text",
+            "data": null,
+            "options": { "required": true }
+          },
+          {
+            "id": "plan",
+            "name": "Plan Id",
+            "type": "text",
+            "data": null,
+            "options": { "required": true }
+          }
+        ]
+      }
+    ],
+    "showOnComponentsPanel": true,
+    "isDeletable": true
+  },
+  "flow-json-component-create-customer": {
+    "graphComponentId": "flow-json-component-create-customer",
+    "title": "Create Stripe customer",
+    "category": "Payments",
+    "imgSrc": "assets/images/icons/add-user.svg",
+    "type": "graphComponent",
+    "file": "./src/create-customer.js",
+    "executionPlatform": ["server", "client"],
+    "metadata": {
+      "icon-color": "#174f01"
+    },
+    "ports": [
+      {
+        "id": "Success",
+        "title": "Success",
+        "description": "Customer created succesfully",
+        "properties": [
+          {
+            "categoryName": "General",
+            "categoryDescription": "Basic settings about this port",
+            "properties": [
+              {
+                "id": "Data",
+                "name": "Response",
+                "type": "object",
+                "data": null,
+                "options": { "required": true }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Error",
+        "title": "Error",
+        "description": "An error occured",
+        "properties": [
+          {
+            "categoryName": "General",
+            "categoryDescription": "Basic settings about this port",
+            "properties": [
+              {
+                "id": "Data",
+                "name": "Error",
+                "type": "text",
+                "data": null,
+                "options": { "required": true }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "properties": [
+      {
+        "categoryName": "General",
+        "categoryDescription": "Basic settings about the Create Customer component",
+        "properties": [
+          {
+            "id": "secret_key",
+            "name": "Stripe secret key",
+            "type": "text",
+            "data": null,
+            "options": { "required": true }
+          },
+          {
+            "id": "email",
+            "name": "Customer Email",
+            "type": "text",
+            "data": null,
+            "options": { "required": true }
+          },
+          {
+            "id": "card_number",
+            "name": "Card Number",
+            "type": "text",
+            "data": null,
+            "options": { "required": true }
+          },
+          {
+            "id": "cvc",
+            "name": "Card CVC",
+            "type": "text",
+            "data": null,
+            "options": { "required": true }
+          },
+          {
+            "id": "exp_month",
+            "name": "Card Expiry Month",
+            "type": "text",
+            "data": null,
+            "options": { "required": true }
+          },
+          {
+            "id": "exp_year",
+            "name": "Card Expiry Year",
+            "type": "text",
+            "data": null,
+            "options": { "required": true }
+          }
+        ]
+      }
+    ],
+    "showOnComponentsPanel": true,
+    "isDeletable": true
+  },
+  "flow-json-component-delete-card": {
+    "graphComponentId": "flow-json-component-delete-card",
+    "title": "Delete credit card of Stripe customer",
+    "category": "Payments",
+    "imgSrc": "assets/images/icons/remove-credit-card.svg",
+    "type": "graphComponent",
+    "file": "./src/delete-card.js",
+    "executionPlatform": ["server", "client"],
+    "metadata": {
+      "icon-color": "#4F0101"
+    },
+    "ports": [
+      {
+        "id": "Success",
+        "title": "Success",
+        "description": "Card deleted succesfully",
+        "properties": [
+          {
+            "categoryName": "General",
+            "categoryDescription": "Basic settings about this port",
+            "properties": [
+              {
+                "id": "Data",
+                "name": "Response",
+                "type": "object",
+                "data": null,
+                "options": { "required": true }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Error",
+        "title": "Error",
+        "description": "An error occured",
+        "properties": [
+          {
+            "categoryName": "General",
+            "categoryDescription": "Basic settings about this port",
+            "properties": [
+              {
+                "id": "Data",
+                "name": "Error",
+                "type": "text",
+                "data": null,
+                "options": { "required": true }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "properties": [
+      {
+        "categoryName": "General",
+        "categoryDescription": "Basic settings about the Delete Card component",
+        "properties": [
+          {
+            "id": "secret_key",
+            "name": "Stripe secret key",
+            "type": "text",
+            "data": null,
+            "options": { "required": true }
+          },
+          {
+            "id": "customer",
+            "name": "Customer Id",
+            "type": "text",
+            "data": null,
+            "options": { "required": true }
+          },
+          {
+            "id": "card_id",
+            "name": "Card Id",
+            "type": "text",
+            "data": null,
+            "options": { "required": true }
+          }
+        ]
+      }
+    ],
+    "showOnComponentsPanel": true,
+    "isDeletable": true
+  },
+  "flow-json-component-cancel-subscription": {
+    "graphComponentId": "flow-json-component-cancel-subscription",
+    "title": "cancel Stripe payment subscription",
+    "category": "Payments",
+    "imgSrc": "assets/images/icons/subscription.svg",
+    "type": "graphComponent",
+    "file": "./src/cancel-subscription.js",
+    "executionPlatform": ["server", "client"],
+    "metadata": {
+      "icon-color": "#4F0101"
+    },
+    "ports": [
+      {
+        "id": "Success",
+        "title": "Success",
+        "description": "Subscription canceled succesfully",
+        "properties": [
+          {
+            "categoryName": "General",
+            "categoryDescription": "Basic settings about this port",
+            "properties": [
+              {
+                "id": "Data",
+                "name": "Response",
+                "type": "object",
+                "data": null,
+                "options": { "required": true }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Error",
+        "title": "Error",
+        "description": "An error occured",
+        "properties": [
+          {
+            "categoryName": "General",
+            "categoryDescription": "Basic settings about this port",
+            "properties": [
+              {
+                "id": "Data",
+                "name": "Error",
+                "type": "text",
+                "data": null,
+                "options": { "required": true }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "properties": [
+      {
+        "categoryName": "General",
+        "categoryDescription": "Basic settings about the Cancel Subscription component",
+        "properties": [
+          {
+            "id": "secret_key",
+            "name": "Stripe secret key",
+            "type": "text",
+            "data": null,
+            "options": { "required": true }
+          },
+          {
+            "id": "subscription",
+            "name": "Subscription Id",
+            "type": "text",
+            "data": null,
+            "options": { "required": true }
+          }
+        ]
+      }
+    ],
+    "showOnComponentsPanel": true,
+    "isDeletable": true
+  },
+  "flow-json-component-delete-plan": {
+    "graphComponentId": "flow-json-component-delete-plan",
+    "title": "Delete Stripe payment plan",
+    "category": "Payments",
+    "imgSrc": "assets/images/icons/remove-plan.svg",
+    "type": "graphComponent",
+    "file": "./src/delete-plan.js",
+    "executionPlatform": ["server", "client"],
+    "metadata": {
+      "icon-color": "#4F0101"
+    },
+    "ports": [
+      {
+        "id": "Success",
+        "title": "Success",
+        "description": "Plan deleted succesfully",
+        "properties": [
+          {
+            "categoryName": "General",
+            "categoryDescription": "Basic settings about this port",
+            "properties": [
+              {
+                "id": "Data",
+                "name": "Response",
+                "type": "object",
+                "data": null,
+                "options": { "required": true }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Error",
+        "title": "Error",
+        "description": "An error occured",
+        "properties": [
+          {
+            "categoryName": "General",
+            "categoryDescription": "Basic settings about this port",
+            "properties": [
+              {
+                "id": "Data",
+                "name": "Error",
+                "type": "text",
+                "data": null,
+                "options": { "required": true }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "properties": [
+      {
+        "categoryName": "General",
+        "categoryDescription": "Basic settings about the Delete Plan component",
+        "properties": [
+          {
+            "id": "secret_key",
+            "name": "Stripe secret key",
+            "type": "text",
+            "data": null,
+            "options": { "required": true }
+          },
+          {
+            "id": "plan",
+            "name": "Plan Id",
+            "type": "text",
+            "data": null,
+            "options": { "required": true }
+          }
+        ]
+      }
+    ],
+    "showOnComponentsPanel": true,
+    "isDeletable": true
+  },
+  "flow-json-component-delete-customer": {
+    "graphComponentId": "flow-json-component-delete-customer",
+    "title": "Delete Stripe customer",
+    "category": "Payments",
+    "imgSrc": "assets/images/icons/remove-user.svg",
+    "type": "graphComponent",
+    "file": "./src/delete-customer.js",
+    "executionPlatform": ["server", "client"],
+    "metadata": {
+      "icon-color": "#4F0101"
+    },
+    "ports": [
+      {
+        "id": "Success",
+        "title": "Success",
+        "description": "Customer deleted succesfully",
+        "properties": [
+          {
+            "categoryName": "General",
+            "categoryDescription": "Basic settings about this port",
+            "properties": [
+              {
+                "id": "Data",
+                "name": "Response",
+                "type": "object",
+                "data": null,
+                "options": { "required": true }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Error",
+        "title": "Error",
+        "description": "An error occured",
+        "properties": [
+          {
+            "categoryName": "General",
+            "categoryDescription": "Basic settings about this port",
+            "properties": [
+              {
+                "id": "Data",
+                "name": "Error",
+                "type": "text",
+                "data": null,
+                "options": { "required": true }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "properties": [
+      {
+        "categoryName": "General",
+        "categoryDescription": "Basic settings about the Delete Customer component",
+        "properties": [
+          {
+            "id": "secret_key",
+            "name": "Stripe secret key",
+            "type": "text",
+            "data": null,
+            "options": { "required": true }
+          },
+          {
+            "id": "customer",
+            "name": "Customer Id",
+            "type": "text",
             "data": null,
             "options": { "required": true }
           }

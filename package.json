@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "coverage": "nyc mocha"
   },
   "author": "Hackerbay Inc. <hello@hackerbay.io>",
   "license": "Apache-2.0",
@@ -24,6 +25,7 @@
     "eslint": "^5.16.0",
     "husky": "^2.3.0",
     "mocha": "^6.1.4",
+    "nyc": "^14.1.1",
     "uuid": "^3.3.2"
   }
 }
