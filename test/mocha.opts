@@ -1,3 +1,4 @@
 --require index.js
 --use_strict
+--timeout 8000
 --exit

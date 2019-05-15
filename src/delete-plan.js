@@ -33,7 +33,7 @@ export default class DeletePlan extends Component {
     this.attachTask(() => {
       let task = new Stripe(
         this.getProperty('secret_key').data,
-      ).deleteCard(
+      ).deletePlan(
         this.getProperty('plan_id').data,
       );
       if (task instanceof Error) {

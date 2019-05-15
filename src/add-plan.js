@@ -11,6 +11,7 @@ export default class AddPlan extends Component {
     const plan_interval = new Property('plan_interval', 'text');
     const plan_name = new Property('plan_name', 'text');
     const plan_currency = new Property('plan_currency', 'text');
+    const trial_period_days = new Property('trial_period_days', 'number');
 
     secret_key.required = true;
     plan_amount.required = true;
@@ -22,7 +23,8 @@ export default class AddPlan extends Component {
     this.addProperty(plan_amount);
     this.addProperty(plan_interval);
     this.addProperty(plan_name);
-    this.addproperty(plan_currency);
+    this.addProperty(plan_currency);
+    this.addProperty(trial_period_days);
 
     const success = new Port('Success');
     const error = new Port('Error');
@@ -45,8 +47,10 @@ export default class AddPlan extends Component {
       ).addPlan(
         this.getProperty('plan_amount').data,
         this.getProperty('plan_interval').data,
-        this.addProperty('plan_name').data,
-        this.addProperty('plan_currency').data
+        this.getProperty('plan_name').data,
+        this.getProperty('plan_currency').data,
+        this.getProperty('trial_period_days') 
+        &&  this.getProperty('trial_period_days').data
       );
       if (task instanceof Error) {
         const port = this.getPort('Error');

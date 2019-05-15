@@ -5,21 +5,21 @@ import uuid from 'uuid/v4';
 import DeleteCustomer from '../src/delete-customer';
 
 describe('Delete Customer tests', function() {
-  let component;
-  beforeEach(function() {
-    component = new DeleteCustomer();
-  });
+  let component = new DeleteCustomer();;
+  // beforeEach(function() {
+  //   component = new DeleteCustomer();
+  // });
 
-  afterEach(function() {
-    component = null;
-  });
+  // afterEach(function() {
+  //   component = null;
+  // });
 
   it('is an instance of delete customer component', function() {
     expect(component).to.exist;
     expect(component).to.be.instanceof(DeleteCustomer);
   });
 
-  it('executes without errors', () => {
+  it('executes without errors', async () => {
     component.getProperty('secret_key').data = config.stripe_key;
     component.getProperty('customer').data = uuid();
 
@@ -30,6 +30,6 @@ describe('Delete Customer tests', function() {
     });
     
     new Graph("graph-1").addComponent(component);
-    return component.execute();
+    await component.execute();
   });
 });
