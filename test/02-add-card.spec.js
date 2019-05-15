@@ -36,7 +36,7 @@ describe('Add card tests', () => {
       done();
     });
     
-    new Graph("graph-1").addComponent(component);
+    new Graph('graph-1').addComponent(component);
     component.execute();
   });
 
@@ -65,7 +65,7 @@ describe('Add card tests', () => {
       done();
     });
 
-    new Graph("graph-1").addComponent(component);
+    new Graph('graph-1').addComponent(component);
     component.execute();
   });
 
@@ -79,8 +79,8 @@ describe('Add card tests', () => {
     component.getProperty('customer').data = fake_customer_id;
 
     component.getPort('Success').onEmit(() => {
-      const success = component.getPort('Success').getProperty('Data').data;
-      expect(success).to.not.exist;
+      const card = component.getPort('Success').getProperty('Data').data;
+      expect(card).to.not.exist;
       done();
     });
     
@@ -91,7 +91,7 @@ describe('Add card tests', () => {
       done();
     });
     
-    new Graph("graph-1").addComponent(component);
+    new Graph('graph-1').addComponent(component);
     component.execute();
   });
 });

@@ -36,7 +36,7 @@ describe('Create Customer tests', () => {
       done();
     });
     
-    new Graph("graph-1").addComponent(component);
+    new Graph('graph-1').addComponent(component);
     component.execute();
   });
 
@@ -68,7 +68,7 @@ describe('Create Customer tests', () => {
       done();
     });
     
-    new Graph("graph-1").addComponent(component);
+    new Graph('graph-1').addComponent(component);
     component.execute();
   });
 });

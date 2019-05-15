@@ -2,7 +2,9 @@ import config from 'config';
 import { expect } from 'chai';
 import { Graph } from 'flow-platform-sdk';
 import uuid from 'uuid/v4';
+
 import DeleteCard from '../src/delete-card';
+import MockStore from './mock-store';
 
 describe('Delete Card tests', function() {
   const customer_id = uuid();
@@ -29,7 +31,7 @@ describe('Delete Card tests', function() {
       done();
     });
     
-    new Graph("graph-1").addComponent(component);
+    new Graph('graph-1').addComponent(component);
     component.execute();
   });
 
@@ -40,6 +42,8 @@ describe('Delete Card tests', function() {
     component.getProperty('card_id').data = card_id;
 
     component.getPort('Success').onEmit(() => {
+      const card = component.getPort('Success').getProperty('Data').data;
+      expect(card).to.not.exist;
       done();
     });
     
@@ -50,7 +54,35 @@ describe('Delete Card tests', function() {
       done();
     });
     
-    new Graph("graph-1").addComponent(component);
+    new Graph('graph-1').addComponent(component);
+    component.execute();
+  });
+
+  it('deletes and returns deleted card on success', (done) => {
+    const component = new DeleteCard();
+    component.getProperty('secret_key').data = config.stripe_key;
+    component.getProperty('customer').data = MockStore.customer_id;
+    component.getProperty('card_id').data = MockStore.card_id;
+
+    component.getPort('Success').onEmit(() => {
+      const card = component.getPort('Success').getProperty('Data').data;
+      expect(card).to.exist;
+      expect(card).to.have.property('id');
+      expect(card.object).to.equal('card');
+      expect(card.deleted).to.be.true;
+
+      // remove card from store
+      delete MockStore.card_id;
+      done();
+    });
+
+    component.getPort('Error').onEmit(() => {
+      const error = component.getPort('Error').getProperty('Data').data;
+      expect(error).to.not.exist;
+      done();
+    });
+
+    new Graph('graph-1').addComponent(component);
     component.execute();
   });
 });

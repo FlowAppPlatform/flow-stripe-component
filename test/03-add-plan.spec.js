@@ -1,7 +1,6 @@
 import config from 'config';
 import { expect } from 'chai';
 import { Graph } from 'flow-platform-sdk';
-import uuid from 'uuid/v4';
 
 import AddPlan from '../src/add-plan';
 import MockStore from './mock-store';
@@ -35,7 +34,7 @@ describe('Add plan tests', () => {
       done();
     });
     
-    new Graph("graph-1").addComponent(component);
+    new Graph('graph-1').addComponent(component);
     component.execute();
   });
 
@@ -67,7 +66,7 @@ describe('Add plan tests', () => {
       done();
     });
 
-    new Graph("graph-1").addComponent(component);
+    new Graph('graph-1').addComponent(component);
     component.execute();
   });
 });

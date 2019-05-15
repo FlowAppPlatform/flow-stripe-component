@@ -7,7 +7,7 @@ export default class DeletePlan extends Component {
     this.name = "delete-plan";
 
     const secret_key = new Property('secret_key', 'text');
-    const plan_id = new Property('plan_id', 'text');
+    const plan_id = new Property('plan', 'text');
 
     secret_key.required = true;
     plan_id.required = true;
@@ -34,7 +34,7 @@ export default class DeletePlan extends Component {
       let task = new Stripe(
         this.getProperty('secret_key').data,
       ).deletePlan(
-        this.getProperty('plan_id').data,
+        this.getProperty('plan').data,
       );
       if (task instanceof Error) {
         const port = this.getPort('Error');

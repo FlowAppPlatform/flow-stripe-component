@@ -31,7 +31,7 @@ describe('Create Subscription tests', function() {
       done();
     });
     
-    new Graph("graph-1").addComponent(component);
+    new Graph('graph-1').addComponent(component);
     component.execute();
   });
 
@@ -42,8 +42,8 @@ describe('Create Subscription tests', function() {
     component.getProperty('plan').data = plan_id;
     
     component.getPort('Success').onEmit(() => {
-      const success = component.getPOrt('Success').getProperty('Data').data;
-      expect(success).to.not.exist;
+      const subscription = component.getPOrt('Success').getProperty('Data').data;
+      expect(subscription).to.not.exist;
       done();
     });
     
@@ -54,7 +54,7 @@ describe('Create Subscription tests', function() {
       done();
     });
     
-    new Graph("graph-1").addComponent(component);
+    new Graph('graph-1').addComponent(component);
     component.execute();
   });
 
@@ -74,6 +74,7 @@ describe('Create Subscription tests', function() {
 
       // save subscription id
       MockStore.subscription_id = subscription.id;
+      
       done();
     });
     
@@ -83,7 +84,8 @@ describe('Create Subscription tests', function() {
       done();
     });
     
-    new Graph("graph-1").addComponent(component);
+    new Graph('graph-1').addComponent(component);
     component.execute();
+
   });
 });
