@@ -20,10 +20,11 @@ export default class Charge extends Component {
     const secret_key = new Property('secret_key', 'text');
     const card_number = new Property('card_number', 'text');
     const cvc = new Property('cvc', 'text');
-    const expiry_month = new Property('expiry_month', 'number');
-    const expiry_year = new Property('expiry_year', 'number');
+    const expiry_month = new Property('exp_month', 'text');
+    const expiry_year = new Property('exp_year', 'text');
     const currency = new Property('currency', 'text');
     const amount = new Property('amount', 'number');
+    // optional properties
     const customer_id = new Property('customer_id', 'text');
     const description = new Property('description', 'text');
 
@@ -66,8 +67,8 @@ export default class Charge extends Component {
         this.getProperty('secret_key').data,
         this.getProperty('card_number').data,
         this.getProperty('cvc').data,
-        this.getProperty('expiry_month').data,
-        this.getProperty('expiry_year').data
+        this.getProperty('exp_month').data,
+        this.getProperty('exp_year').data
       ).charge(
         this.getProperty('currency').data,
         this.getProperty('amount').data,

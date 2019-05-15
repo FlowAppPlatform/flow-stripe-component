@@ -11,6 +11,7 @@ export default class AddPlan extends Component {
     const plan_interval = new Property('plan_interval', 'text');
     const plan_name = new Property('plan_name', 'text');
     const plan_currency = new Property('plan_currency', 'text');
+    // optional properties
     const trial_period_days = new Property('trial_period_days', 'number');
 
     secret_key.required = true;

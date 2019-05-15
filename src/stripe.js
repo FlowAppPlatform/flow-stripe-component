@@ -21,9 +21,6 @@ export default class Stripe {
   
   async createCustomer(email) {
     try {
-      if (!this._isCardValid()) {
-        throw new Error('Payment card not valid');
-      }
       const token = await this._createToken();
       
       return await this.stripe.customers.create({
@@ -111,15 +108,18 @@ export default class Stripe {
     }
   }
 
-  async charge(currency, amount, customer_id, description) {
+  async charge(currency, amount, customer, description) {
     try {
-      const token = await this._createToken();
+      let token;
+      if (!customer) {
+        token = await this._createToken();
+      }
       return await this.stripe.charges.create({
         amount,
         currency,
-        source: token.id,
+        source: token && token.id,
         description,
-        customer_id
+        customer
       });
     } catch (err) {
       throw err;
@@ -128,6 +128,9 @@ export default class Stripe {
 
   async _createToken() {
      try {
+      if (!this._isCardValid()) {
+        throw new Error('Payment card not valid');
+      }
        return await this.stripe.tokens.create({
          card: this.card
        });
