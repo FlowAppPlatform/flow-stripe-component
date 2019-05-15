@@ -28,7 +28,7 @@ export default class Stripe {
     }
     try {
       if (!this._isCardValid()) {
-        throw 'Payment card not valid';
+        throw new Error('Payment card not valid');
       }
       const token = await this._createToken();
       
@@ -78,7 +78,7 @@ export default class Stripe {
       const token = await this._createToken();
       return await this.stripe.customers.createSource(
         customer,
-        { source: token },
+        { source: token.id},
       );
     } catch (err) {
       throw err;
@@ -88,6 +88,30 @@ export default class Stripe {
   async deleteCard(customer, card_id) {
     try {
       return await this.stripe.customers.deleteSource(customer, card_id);
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  async addPlan(amount, interval, name, currency, trial_period_days) {
+    try {
+      return await this.stripe.plans.create({
+        amount,
+        interval,
+        product: {
+          name,
+        },
+        currency,
+        trial_period_days
+      });
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  async deletePlan(plan) {
+    try {
+      return await this.stripe.plans.del(plan);
     } catch (err) {
       throw err;
     }
