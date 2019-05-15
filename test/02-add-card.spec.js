@@ -21,7 +21,7 @@ describe('Add card tests', () => {
 
   it('executes without errors', (done) => {
     const component = new AddCard();
-    component.getProperty('secret_key').data = config.stripe_key;
+    component.getProperty('secret_key').data = config.stripe_key || process.env.travis_stripe_key;
     component.getProperty('card_number').data = card_number;
     component.getProperty('cvc').data = cvc;
     component.getProperty('exp_month').data = exp_month;
