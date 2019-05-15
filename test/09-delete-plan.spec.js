@@ -16,7 +16,7 @@ describe('Delete Plan tests', function() {
 
   it('executes without errors', async () => {
     let component = new DeletePlan();
-    component.getProperty('secret_key').data = config.stripe_key || travis_stripe_key;
+    component.getProperty('secret_key').data = config.stripe_key || process.env.travis_stripe_key;
     component.getProperty('plan').data = fake_plan_id;
 
     component.getPort('Success').onEmit(() => {});
@@ -31,7 +31,7 @@ describe('Delete Plan tests', function() {
 
   it('throws Invalid request error when plan id incorrect', (done) => {
     const component = new DeletePlan();
-    component.getProperty('secret_key').data = config.stripe_key || travis_stripe_key;
+    component.getProperty('secret_key').data = config.stripe_key || process.env.travis_stripe_key;
     component.getProperty('plan').data = fake_plan_id;
 
 
@@ -56,7 +56,7 @@ describe('Delete Plan tests', function() {
 
   it('deletes and returns deleted plan on success', (done) => {
     const component = new DeletePlan();
-    component.getProperty('secret_key').data = config.stripe_key || travis_stripe_key;
+    component.getProperty('secret_key').data = config.stripe_key || process.env.travis_stripe_key;
     component.getProperty('plan').data = MockStore.plan_id;
 
     component.getPort('Success').onEmit(() => {

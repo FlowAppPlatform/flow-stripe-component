@@ -18,7 +18,7 @@ describe('Delete Card tests', function() {
 
   it('executes without errors', (done) => {
     const component = new DeleteCard();
-    component.getProperty('secret_key').data = config.stripe_key || travis_stripe_key;
+    component.getProperty('secret_key').data = config.stripe_key || process.env.travis_stripe_key;
     component.getProperty('customer').data = customer_id;
     component.getProperty('card_id').data = card_id;
 
@@ -60,7 +60,7 @@ describe('Delete Card tests', function() {
 
   it('deletes and returns deleted card on success', (done) => {
     const component = new DeleteCard();
-    component.getProperty('secret_key').data = config.stripe_key || travis_stripe_key;
+    component.getProperty('secret_key').data = config.stripe_key || process.env.travis_stripe_key;
     component.getProperty('customer').data = MockStore.customer_id;
     component.getProperty('card_id').data = MockStore.card_id;
 
