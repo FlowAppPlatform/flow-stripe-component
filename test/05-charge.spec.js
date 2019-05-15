@@ -28,8 +28,8 @@ describe('Charge tests', () => {
     component.getProperty('exp_year').data = exp_year;
     component.getProperty('amount').data = amount;
     component.getProperty('currency').data = currency;
-    
-    component.getProperty('customer_id').data = MockStore.customer_id;
+
+    // component.getProperty('customer_id').data = MockStore.customer_id;
 
     component.getPort('Success').onEmit(() => {
       done();

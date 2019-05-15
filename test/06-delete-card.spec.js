@@ -37,7 +37,7 @@ describe('Delete Card tests', function() {
 
   it('it throws error when customer_id is incorrect',  (done) => {
     const component = new DeleteCard();
-    component.getProperty('secret_key').data = config.stripe_key;
+    component.getProperty('secret_key').data = config.stripe_key || process.env.travis_stripe_key;
     component.getProperty('customer').data = customer_id;
     component.getProperty('card_id').data = card_id;
 
