@@ -16,7 +16,7 @@ describe('Delete Customer tests', function() {
 
   it('executes without errors', async () => {
     let component = new DeleteCustomer();
-    component.getProperty('secret_key').data = config.stripe_key;
+    component.getProperty('secret_key').data = config.stripe_key || travis_stripe_key;
     component.getProperty('customer').data = fake_customer_id;
 
     component.getPort('Success').onEmit(() => {});
@@ -31,7 +31,7 @@ describe('Delete Customer tests', function() {
 
   it('throws Invalid request error when customer id incorrect', (done) => {
     const component = new DeleteCustomer();
-    component.getProperty('secret_key').data = config.stripe_key;
+    component.getProperty('secret_key').data = config.stripe_key || travis_stripe_key;
     component.getProperty('customer').data = fake_customer_id;
 
 
@@ -56,7 +56,7 @@ describe('Delete Customer tests', function() {
 
   it('deletes and returns deleted customer on success', (done) => {
     const component = new DeleteCustomer();
-    component.getProperty('secret_key').data = config.stripe_key;
+    component.getProperty('secret_key').data = config.stripe_key || travis_stripe_key;
     component.getProperty('customer').data = MockStore.customer_id;
 
     component.getPort('Success').onEmit(() => {

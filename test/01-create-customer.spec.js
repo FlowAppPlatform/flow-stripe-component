@@ -20,7 +20,7 @@ describe('Create Customer tests', () => {
 
   it('executes without errors',  (done) => {
     const component = new CreateCustomer();
-    component.getProperty('secret_key').data = config.stripe_key;
+    component.getProperty('secret_key').data = config.stripe_key || travis_stripe_key;
     component.getProperty('email').data = email;
     component.getProperty('card_number').data = card_number;
     component.getProperty('cvc').data = cvc;
@@ -42,7 +42,7 @@ describe('Create Customer tests', () => {
 
   it('it returns customer data on sucess',  (done) => {
     const component = new CreateCustomer();
-    component.getProperty('secret_key').data = config.stripe_key;
+    component.getProperty('secret_key').data = config.stripe_key || travis_stripe_key;
     component.getProperty('email').data = email;
     component.getProperty('card_number').data = card_number;
     component.getProperty('cvc').data = cvc;
