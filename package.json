@@ -1,14 +1,26 @@
 {
-  "name": "flow-stripe-components",
+  "name": "flow-stripe-component",
   "version": "0.0.1",
-  "description": "",
+  "description": "Stripe components designed to work with Flow SDK",
   "main": "index.js",
   "scripts": {
     "test": "mocha",
     "coverage": "nyc mocha"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FlowAppPlatform/flow-stripe-component.git"
+  },
+  "keywords": [
+    "stripe",
+    "flow"
+  ],
   "author": "Hackerbay Inc. <hello@hackerbay.io>",
   "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/FlowAppPlatform/flow-stripe-component/issues"
+  },
+  "homepage": "https://github.com/FlowAppPlatform/flow-stripe-component#readme",
   "dependencies": {
     "@babel/core": "^7.4.4",
     "@babel/polyfill": "^7.4.4",
