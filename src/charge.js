@@ -1,5 +1,5 @@
-var Flow = require('flow-platform-sdk');
-var Stripe = require('./stripe');
+import { Component, Port, Property } from 'flow-platform-sdk';
+import Stripe from './stripe';
 
 /*
 *
@@ -12,32 +12,29 @@ var Stripe = require('./stripe');
 *
 */
 
-class Charge extends Flow.Component {
-  
-  constructor(id = null) {
+export default class Charge extends Component {
+  constructor() {
+    super();
+    this.name = 'charge';
 
-    super(id);
-    this.name = 'Charge';
+    const secret_key = new Property('secret_key', 'text');
+    const card_number = new Property('card_number', 'text');
+    const cvc = new Property('cvc', 'text');
+    const expiry_month = new Property('exp_month', 'text');
+    const expiry_year = new Property('exp_year', 'text');
+    const currency = new Property('currency', 'text');
+    const amount = new Property('amount', 'number');
+    // optional properties
+    const customer_id = new Property('customer_id', 'text');
+    const description = new Property('description', 'text');
 
-    var secret_key = new Flow.Property('secret_key', 'text');
+
     secret_key.required = true;
-
-    var card_number = new Flow.Property('card_number', 'text');
     card_number.required = true;
-
-    var cvc = new Flow.Property('cvc', 'text');
     cvc.required = true;
-
-    var expiry_month = new Flow.Property('expiry_month', 'number');
     expiry_month.required = true;
-
-    var expiry_year = new Flow.Property('expiry_year', 'number');
     expiry_year.required = true;
-
-    var currency = new Flow.Property('currency', 'text');
     currency.required = true;
-
-    var amount = new Flow.Property('amount', 'number');
     amount.required = true;
 
     this.addProperty(secret_key);
@@ -47,15 +44,17 @@ class Charge extends Flow.Component {
     this.addProperty(expiry_year);
     this.addProperty(currency);
     this.addProperty(amount);
+    this.addProperty(customer_id);
+    this.addProperty(description);
 
-    var success = new Flow.Port('Success');
-    var error = new Flow.Port('Error');
+    const success = new Port('Success');
+    const error = new Port('Error');
 
-    var response = new Flow.Property('Data', 'object');
+    const response = new Property('Data', 'object');
     response.required = true;
     success.addProperty(response);
     
-    var generalError = new Flow.Property('Data', 'object');
+    const generalError = new Property('Data', 'object');
     generalError.required = true;
     error.addProperty(generalError);
     
@@ -64,21 +63,23 @@ class Charge extends Flow.Component {
 
     // make charge here
     this.attachTask(function() {
-      let task = 
-        new Stripe(
-          this.getProperty('secret_key').data,
-          this.getProperty('card_number').data,
-          this.getProperty('cvc').data,
-          this.getProperty('expiry_month').data,
-          this.getProperty('expiry_year').data
-        ).charge(
-          this.getProperty('currency').data,
-          this.getProperty('amount').data
-        );
+      const task = new Stripe(
+        this.getProperty('secret_key').data,
+        this.getProperty('card_number').data,
+        this.getProperty('cvc').data,
+        this.getProperty('exp_month').data,
+        this.getProperty('exp_year').data
+      ).charge(
+        this.getProperty('currency').data,
+        this.getProperty('amount').data,
+        this.getProperty('customer_id').data,
+        this.getProperty('description').data
+      );
       
       if (task instanceof Error) {
         const port = this.getPort('Error');
         port.getProperty('Data').data = task;
+
         port.emit();
         this.taskComplete();
         return;
@@ -87,18 +88,17 @@ class Charge extends Flow.Component {
         .then(response => {
           const port = this.getPort('Success');
           port.getProperty('Data').data = response;
+
           port.emit();
           this.taskComplete();
         })
         .catch(err => {
           const port = this.getPort('Error');
           port.getProperty('Data').data = err;
+
           port.emit();
           this.taskComplete();
         });
     });
-
   }
 }
-
-module.exports = Charge;
