@@ -60,5 +60,8 @@ typings/
 # next.js build output
 .next
 
+# Desktop services store files
+*.DS_Store
+
 .vscode/
 config/
