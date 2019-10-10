@@ -60,6 +60,13 @@
         "categoryDescription": "Basic settings for the Charge component",
         "properties": [
           {
+            "id": "secret_key",
+            "name": "Stripe secret key",
+            "type": "text",
+            "data": null,
+            "options": { "required": true }
+          },
+          {
             "id": "card_number",
             "name": "Card Number",
             "type": "text",
