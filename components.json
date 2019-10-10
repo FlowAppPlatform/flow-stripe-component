@@ -19,7 +19,7 @@
         "properties": [
           {
             "categoryName": "General",
-            "categoryDescription": "Basic settings about this port",
+            "categoryDescription": "Basic settings for this port",
             "properties": [
               {
                 "id": "Data",
@@ -40,7 +40,7 @@
         "properties": [
           {
             "categoryName": "General",
-            "categoryDescription": "Basic settings about this port",
+            "categoryDescription": "Basic settings for this port",
             "properties": [
               {
                 "id": "Data",
@@ -57,15 +57,8 @@
     "properties": [
       {
         "categoryName": "General",
-        "categoryDescription": "Basic settings about the Charge component",
+        "categoryDescription": "Basic settings for the Charge component",
         "properties": [
-          {
-            "id": "secret_key",
-            "name": "Stripe secret key",
-            "type": "text",
-            "data": null,
-            "options": { "required": true }
-          },
           {
             "id": "card_number",
             "name": "Card Number",
@@ -148,7 +141,7 @@
         "properties": [
           {
             "categoryName": "General",
-            "categoryDescription": "Basic settings about this port",
+            "categoryDescription": "Basic settings for this port",
             "properties": [
               {
                 "id": "Data",
@@ -169,7 +162,7 @@
         "properties": [
           {
             "categoryName": "General",
-            "categoryDescription": "Basic settings about this port",
+            "categoryDescription": "Basic settings for this port",
             "properties": [
               {
                 "id": "Data",
@@ -186,7 +179,7 @@
     "properties": [
       {
         "categoryName": "General",
-        "categoryDescription": "Basic settings about the Add Card component",
+        "categoryDescription": "Basic settings for the Add Card component",
         "properties": [
           {
             "id": "secret_key",
@@ -256,7 +249,7 @@
         "properties": [
           {
             "categoryName": "General",
-            "categoryDescription": "Basic settings about this port",
+            "categoryDescription": "Basic settings for this port",
             "properties": [
               {
                 "id": "Data",
@@ -277,7 +270,7 @@
         "properties": [
           {
             "categoryName": "General",
-            "categoryDescription": "Basic settings about this port",
+            "categoryDescription": "Basic settings for this port",
             "properties": [
               {
                 "id": "Data",
@@ -294,7 +287,7 @@
     "properties": [
       {
         "categoryName": "General",
-        "categoryDescription": "Basic settings about the Add Plan component",
+        "categoryDescription": "Basic settings for the Add Plan component",
         "properties": [
           {
             "id": "secret_key",
@@ -364,7 +357,7 @@
         "properties": [
           {
             "categoryName": "General",
-            "categoryDescription": "Basic settings about this port",
+            "categoryDescription": "Basic settings for this port",
             "properties": [
               {
                 "id": "Data",
@@ -385,7 +378,7 @@
         "properties": [
           {
             "categoryName": "General",
-            "categoryDescription": "Basic settings about this port",
+            "categoryDescription": "Basic settings for this port",
             "properties": [
               {
                 "id": "Data",
@@ -402,7 +395,7 @@
     "properties": [
       {
         "categoryName": "General",
-        "categoryDescription": "Basic settings about the Create Subscription component",
+        "categoryDescription": "Basic settings for the Create Subscription component",
         "properties": [
           {
             "id": "secret_key",
@@ -451,7 +444,7 @@
         "properties": [
           {
             "categoryName": "General",
-            "categoryDescription": "Basic settings about this port",
+            "categoryDescription": "Basic settings for this port",
             "properties": [
               {
                 "id": "Data",
@@ -472,7 +465,7 @@
         "properties": [
           {
             "categoryName": "General",
-            "categoryDescription": "Basic settings about this port",
+            "categoryDescription": "Basic settings for this port",
             "properties": [
               {
                 "id": "Data",
@@ -489,7 +482,7 @@
     "properties": [
       {
         "categoryName": "General",
-        "categoryDescription": "Basic settings about the Create Customer component",
+        "categoryDescription": "Basic settings for the Create Customer component",
         "properties": [
           {
             "id": "secret_key",
@@ -559,7 +552,7 @@
         "properties": [
           {
             "categoryName": "General",
-            "categoryDescription": "Basic settings about this port",
+            "categoryDescription": "Basic settings for this port",
             "properties": [
               {
                 "id": "Data",
@@ -580,7 +573,7 @@
         "properties": [
           {
             "categoryName": "General",
-            "categoryDescription": "Basic settings about this port",
+            "categoryDescription": "Basic settings for this port",
             "properties": [
               {
                 "id": "Data",
@@ -597,7 +590,7 @@
     "properties": [
       {
         "categoryName": "General",
-        "categoryDescription": "Basic settings about the Delete Card component",
+        "categoryDescription": "Basic settings for the Delete Card component",
         "properties": [
           {
             "id": "secret_key",
@@ -646,7 +639,7 @@
         "properties": [
           {
             "categoryName": "General",
-            "categoryDescription": "Basic settings about this port",
+            "categoryDescription": "Basic settings for this port",
             "properties": [
               {
                 "id": "Data",
@@ -667,7 +660,7 @@
         "properties": [
           {
             "categoryName": "General",
-            "categoryDescription": "Basic settings about this port",
+            "categoryDescription": "Basic settings for this port",
             "properties": [
               {
                 "id": "Data",
@@ -684,7 +677,7 @@
     "properties": [
       {
         "categoryName": "General",
-        "categoryDescription": "Basic settings about the Cancel Subscription component",
+        "categoryDescription": "Basic settings for the Cancel Subscription component",
         "properties": [
           {
             "id": "secret_key",
@@ -726,7 +719,7 @@
         "properties": [
           {
             "categoryName": "General",
-            "categoryDescription": "Basic settings about this port",
+            "categoryDescription": "Basic settings for this port",
             "properties": [
               {
                 "id": "Data",
@@ -747,7 +740,7 @@
         "properties": [
           {
             "categoryName": "General",
-            "categoryDescription": "Basic settings about this port",
+            "categoryDescription": "Basic settings for this port",
             "properties": [
               {
                 "id": "Data",
@@ -764,7 +757,7 @@
     "properties": [
       {
         "categoryName": "General",
-        "categoryDescription": "Basic settings about the Delete Plan component",
+        "categoryDescription": "Basic settings for the Delete Plan component",
         "properties": [
           {
             "id": "secret_key",
@@ -806,7 +799,7 @@
         "properties": [
           {
             "categoryName": "General",
-            "categoryDescription": "Basic settings about this port",
+            "categoryDescription": "Basic settings for this port",
             "properties": [
               {
                 "id": "Data",
@@ -827,7 +820,7 @@
         "properties": [
           {
             "categoryName": "General",
-            "categoryDescription": "Basic settings about this port",
+            "categoryDescription": "Basic settings for this port",
             "properties": [
               {
                 "id": "Data",
@@ -844,7 +837,7 @@
     "properties": [
       {
         "categoryName": "General",
-        "categoryDescription": "Basic settings about the Delete Customer component",
+        "categoryDescription": "Basic settings for the Delete Customer component",
         "properties": [
           {
             "id": "secret_key",
