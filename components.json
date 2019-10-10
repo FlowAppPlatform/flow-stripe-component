@@ -1,6 +1,6 @@
 {
-  "flow-json-component-charge": {
-    "graphComponentId": "flow-json-component-charge",
+  "flow-stripe-component-charge": {
+    "graphComponentId": "flow-stripe-component-charge",
     "title": "Charge credit card with Stripe",
     "category": "Payments",
     "imgSrc": "assets/images/icons/charge.svg",
@@ -128,8 +128,8 @@
     "showOnComponentsPanel": true,
     "isDeletable": true
   },
-  "flow-json-component-add-card": {
-    "graphComponentId": "flow-json-component-add-card",
+  "flow-stripe-component-add-card": {
+    "graphComponentId": "flow-stripe-component-add-card",
     "title": "Add credit card to Stripe customer",
     "category": "Payments",
     "imgSrc": "assets/images/icons/add-credit-card.svg",
@@ -236,8 +236,8 @@
     "showOnComponentsPanel": true,
     "isDeletable": true
   },
-  "flow-json-component-add-plan": {
-    "graphComponentId": "flow-json-component-add-plan",
+  "flow-stripe-component-add-plan": {
+    "graphComponentId": "flow-stripe-component-add-plan",
     "title": "Add Stripe payment plan",
     "category": "Payments",
     "imgSrc": "assets/images/icons/add-plan.svg",
@@ -344,8 +344,8 @@
     "showOnComponentsPanel": true,
     "isDeletable": true
   },
-  "flow-json-component-create-subscription": {
-    "graphComponentId": "flow-json-component-create-subscription",
+  "flow-stripe-component-create-subscription": {
+    "graphComponentId": "flow-stripe-component-create-subscription",
     "title": "create Stripe payment subscription",
     "category": "Payments",
     "imgSrc": "assets/images/icons/subscription.svg",
@@ -431,8 +431,8 @@
     "showOnComponentsPanel": true,
     "isDeletable": true
   },
-  "flow-json-component-create-customer": {
-    "graphComponentId": "flow-json-component-create-customer",
+  "flow-stripe-component-create-customer": {
+    "graphComponentId": "flow-stripe-component-create-customer",
     "title": "Create Stripe customer",
     "category": "Payments",
     "imgSrc": "assets/images/icons/add-user.svg",
@@ -539,8 +539,8 @@
     "showOnComponentsPanel": true,
     "isDeletable": true
   },
-  "flow-json-component-delete-card": {
-    "graphComponentId": "flow-json-component-delete-card",
+  "flow-stripe-component-delete-card": {
+    "graphComponentId": "flow-stripe-component-delete-card",
     "title": "Delete credit card of Stripe customer",
     "category": "Payments",
     "imgSrc": "assets/images/icons/remove-credit-card.svg",
@@ -626,8 +626,8 @@
     "showOnComponentsPanel": true,
     "isDeletable": true
   },
-  "flow-json-component-cancel-subscription": {
-    "graphComponentId": "flow-json-component-cancel-subscription",
+  "flow-stripe-component-cancel-subscription": {
+    "graphComponentId": "flow-stripe-component-cancel-subscription",
     "title": "cancel Stripe payment subscription",
     "category": "Payments",
     "imgSrc": "assets/images/icons/subscription.svg",
@@ -706,8 +706,8 @@
     "showOnComponentsPanel": true,
     "isDeletable": true
   },
-  "flow-json-component-delete-plan": {
-    "graphComponentId": "flow-json-component-delete-plan",
+  "flow-stripe-component-delete-plan": {
+    "graphComponentId": "flow-stripe-component-delete-plan",
     "title": "Delete Stripe payment plan",
     "category": "Payments",
     "imgSrc": "assets/images/icons/remove-plan.svg",
@@ -786,8 +786,8 @@
     "showOnComponentsPanel": true,
     "isDeletable": true
   },
-  "flow-json-component-delete-customer": {
-    "graphComponentId": "flow-json-component-delete-customer",
+  "flow-stripe-component-delete-customer": {
+    "graphComponentId": "flow-stripe-component-delete-customer",
     "title": "Delete Stripe customer",
     "category": "Payments",
     "imgSrc": "assets/images/icons/remove-user.svg",
