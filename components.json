@@ -60,13 +60,6 @@
         "categoryDescription": "Basic settings for the Charge component",
         "properties": [
           {
-            "id": "secret_key",
-            "name": "Stripe secret key",
-            "type": "text",
-            "data": null,
-            "options": { "required": true }
-          },
-          {
             "id": "card_number",
             "name": "Card Number",
             "type": "text",
@@ -121,6 +114,19 @@
             "type": "text",
             "data": null,
             "options": { "required": false }
+          }
+        ]
+      },
+      {
+        "categoryName": "Advanced",
+        "categoryDescription": "Advanced settings for the Charge component",
+        "properties": [
+          {
+            "id": "secret_key",
+            "name": "Stripe secret key",
+            "type": "text",
+            "data": null,
+            "options": { "required": true }
           }
         ]
       }
@@ -189,13 +195,6 @@
         "categoryDescription": "Basic settings for the Add Card component",
         "properties": [
           {
-            "id": "secret_key",
-            "name": "Stripe secret key",
-            "type": "text",
-            "data": null,
-            "options": { "required": true }
-          },
-          {
             "id": "card_number",
             "name": "Card Number",
             "type": "text",
@@ -226,6 +225,19 @@
           {
             "id": "customer",
             "name": "Customer",
+            "type": "text",
+            "data": null,
+            "options": { "required": true }
+          }
+        ]
+      },
+      {
+        "categoryName": "Advanced",
+        "categoryDescription": "Advanced settings for the Add Card component",
+        "properties": [
+          {
+            "id": "secret_key",
+            "name": "Stripe secret key",
             "type": "text",
             "data": null,
             "options": { "required": true }
@@ -297,13 +309,6 @@
         "categoryDescription": "Basic settings for the Add Plan component",
         "properties": [
           {
-            "id": "secret_key",
-            "name": "Stripe secret key",
-            "type": "text",
-            "data": null,
-            "options": { "required": true }
-          },
-          {
             "id": "plan_amount",
             "name": "Plan Amount",
             "type": "number",
@@ -337,6 +342,19 @@
             "type": "number",
             "data": null,
             "options": { "required": false }
+          }
+        ]
+      },
+      {
+        "categoryName": "Advanced",
+        "categoryDescription": "Advanced settings for the Add Plan component",
+        "properties": [
+          {
+            "id": "secret_key",
+            "name": "Stripe secret key",
+            "type": "text",
+            "data": null,
+            "options": { "required": true }
           }
         ]
       }
@@ -405,13 +423,6 @@
         "categoryDescription": "Basic settings for the Create Subscription component",
         "properties": [
           {
-            "id": "secret_key",
-            "name": "Stripe secret key",
-            "type": "text",
-            "data": null,
-            "options": { "required": true }
-          },
-          {
             "id": "customer",
             "name": "Customer Id",
             "type": "text",
@@ -421,6 +432,19 @@
           {
             "id": "plan",
             "name": "Plan Id",
+            "type": "text",
+            "data": null,
+            "options": { "required": true }
+          }
+        ]
+      },
+      {
+        "categoryName": "Advanced",
+        "categoryDescription": "Advanced settings for the Create Subscription component",
+        "properties": [
+          {
+            "id": "secret_key",
+            "name": "Stripe secret key",
             "type": "text",
             "data": null,
             "options": { "required": true }
@@ -492,13 +516,6 @@
         "categoryDescription": "Basic settings for the Create Customer component",
         "properties": [
           {
-            "id": "secret_key",
-            "name": "Stripe secret key",
-            "type": "text",
-            "data": null,
-            "options": { "required": true }
-          },
-          {
             "id": "email",
             "name": "Customer Email",
             "type": "text",
@@ -529,6 +546,19 @@
           {
             "id": "exp_year",
             "name": "Card Expiry Year",
+            "type": "text",
+            "data": null,
+            "options": { "required": true }
+          }
+        ]
+      },
+      {
+        "categoryName": "Advanced",
+        "categoryDescription": "Advanced settings for the Create Customer component",
+        "properties": [
+          {
+            "id": "secret_key",
+            "name": "Stripe secret key",
             "type": "text",
             "data": null,
             "options": { "required": true }
@@ -600,13 +630,6 @@
         "categoryDescription": "Basic settings for the Delete Card component",
         "properties": [
           {
-            "id": "secret_key",
-            "name": "Stripe secret key",
-            "type": "text",
-            "data": null,
-            "options": { "required": true }
-          },
-          {
             "id": "customer",
             "name": "Customer Id",
             "type": "text",
@@ -616,6 +639,19 @@
           {
             "id": "card_id",
             "name": "Card Id",
+            "type": "text",
+            "data": null,
+            "options": { "required": true }
+          }
+        ]
+      },
+      {
+        "categoryName": "Advanced",
+        "categoryDescription": "Advanced settings for the Delete Card component",
+        "properties": [
+          {
+            "id": "secret_key",
+            "name": "Stripe secret key",
             "type": "text",
             "data": null,
             "options": { "required": true }
@@ -687,15 +723,21 @@
         "categoryDescription": "Basic settings for the Cancel Subscription component",
         "properties": [
           {
-            "id": "secret_key",
-            "name": "Stripe secret key",
+            "id": "subscription",
+            "name": "Subscription Id",
             "type": "text",
             "data": null,
             "options": { "required": true }
-          },
+          }
+        ]
+      },
+      {
+        "categoryName": "Advanced",
+        "categoryDescription": "Advanced settings for the Cancel Subscription component",
+        "properties": [
           {
-            "id": "subscription",
-            "name": "Subscription Id",
+            "id": "secret_key",
+            "name": "Stripe secret key",
             "type": "text",
             "data": null,
             "options": { "required": true }
@@ -767,15 +809,21 @@
         "categoryDescription": "Basic settings for the Delete Plan component",
         "properties": [
           {
-            "id": "secret_key",
-            "name": "Stripe secret key",
+            "id": "plan",
+            "name": "Plan Id",
             "type": "text",
             "data": null,
             "options": { "required": true }
-          },
+          }
+        ]
+      },
+      {
+        "categoryName": "Advanced",
+        "categoryDescription": "Advanced settings for the Delete Plan component",
+        "properties": [
           {
-            "id": "plan",
-            "name": "Plan Id",
+            "id": "secret_key",
+            "name": "Stripe secret key",
             "type": "text",
             "data": null,
             "options": { "required": true }
@@ -847,15 +895,21 @@
         "categoryDescription": "Basic settings for the Delete Customer component",
         "properties": [
           {
-            "id": "secret_key",
-            "name": "Stripe secret key",
+            "id": "customer",
+            "name": "Customer Id",
             "type": "text",
             "data": null,
             "options": { "required": true }
-          },
+          }
+        ]
+      },
+      {
+        "categoryName": "Advanced",
+        "categoryDescription": "Advanced settings for the Delete Customer component",
+        "properties": [
           {
-            "id": "customer",
-            "name": "Customer Id",
+            "id": "secret_key",
+            "name": "Stripe secret key",
             "type": "text",
             "data": null,
             "options": { "required": true }
