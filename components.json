@@ -15,6 +15,7 @@
         "id": "Success",
         "title": "Success",
         "description": "Charge made succesfully",
+        "color": "#3BC105",
         "properties": [
           {
             "categoryName": "General",
@@ -35,6 +36,7 @@
         "id": "Error",
         "title": "Error",
         "description": "An error occured",
+        "color": "#C83838",
         "properties": [
           {
             "categoryName": "General",
@@ -142,6 +144,7 @@
         "id": "Success",
         "title": "Success",
         "description": "Card added succesfully",
+        "color": "#3BC105",
         "properties": [
           {
             "categoryName": "General",
@@ -162,6 +165,7 @@
         "id": "Error",
         "title": "Error",
         "description": "An error occured",
+        "color": "#C83838",
         "properties": [
           {
             "categoryName": "General",
@@ -248,6 +252,7 @@
         "id": "Success",
         "title": "Success",
         "description": "Plan added succesfully",
+        "color": "#3BC105",
         "properties": [
           {
             "categoryName": "General",
@@ -268,6 +273,7 @@
         "id": "Error",
         "title": "Error",
         "description": "An error occured",
+        "color": "#C83838",
         "properties": [
           {
             "categoryName": "General",
@@ -354,6 +360,7 @@
         "id": "Success",
         "title": "Success",
         "description": "Subscription created succesfully",
+        "color": "#3BC105",
         "properties": [
           {
             "categoryName": "General",
@@ -374,6 +381,7 @@
         "id": "Error",
         "title": "Error",
         "description": "An error occured",
+        "color": "#C83838",
         "properties": [
           {
             "categoryName": "General",
@@ -439,6 +447,7 @@
         "id": "Success",
         "title": "Success",
         "description": "Customer created succesfully",
+        "color": "#3BC105",
         "properties": [
           {
             "categoryName": "General",
@@ -459,6 +468,7 @@
         "id": "Error",
         "title": "Error",
         "description": "An error occured",
+        "color": "#C83838",
         "properties": [
           {
             "categoryName": "General",
@@ -545,6 +555,7 @@
         "id": "Success",
         "title": "Success",
         "description": "Card deleted succesfully",
+        "color": "#3BC105",
         "properties": [
           {
             "categoryName": "General",
@@ -565,6 +576,7 @@
         "id": "Error",
         "title": "Error",
         "description": "An error occured",
+        "color": "#C83838",
         "properties": [
           {
             "categoryName": "General",
@@ -630,6 +642,7 @@
         "id": "Success",
         "title": "Success",
         "description": "Subscription canceled succesfully",
+        "color": "#3BC105",
         "properties": [
           {
             "categoryName": "General",
@@ -650,6 +663,7 @@
         "id": "Error",
         "title": "Error",
         "description": "An error occured",
+        "color": "#C83838",
         "properties": [
           {
             "categoryName": "General",
@@ -708,6 +722,7 @@
         "id": "Success",
         "title": "Success",
         "description": "Plan deleted succesfully",
+        "color": "#3BC105",
         "properties": [
           {
             "categoryName": "General",
@@ -728,6 +743,7 @@
         "id": "Error",
         "title": "Error",
         "description": "An error occured",
+        "color": "#C83838",
         "properties": [
           {
             "categoryName": "General",
@@ -786,6 +802,7 @@
         "id": "Success",
         "title": "Success",
         "description": "Customer deleted succesfully",
+        "color": "#3BC105",
         "properties": [
           {
             "categoryName": "General",
@@ -806,6 +823,7 @@
         "id": "Error",
         "title": "Error",
         "description": "An error occured",
+        "color": "#C83838",
         "properties": [
           {
             "categoryName": "General",
